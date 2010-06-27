@@ -154,10 +154,11 @@ module Pingfm
   	#   {'status' => 'OK'}
   	# if unsuccessful returns:
   	#   {'status' => 'FAIL', 'message' => 'message what went wrong'}
-  	def post(body, title = '', post_method = 'default', service = '', debug = 0)
+  	def post(body, title = '', post_method = 'default', service = '',exclude = '' ,debug = 0)
   	  response = get_response('user.post',
   	                          'body' => body, 'title' => title,
   	                          'post_method' => post_method, 'service' => service,
+  	                          'exclude' => exclude,
   	                          'debug' => debug)
   		if response.elements['rsp'].attributes['status'] == 'OK'
   			return status_ok
